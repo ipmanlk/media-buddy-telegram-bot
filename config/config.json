@@ -1,0 +1,5 @@
+{
+    "BOT_TOKEN": "",
+    "BOT_TRIGGER": "/md",
+    "BOT_HELP_TRIGGER": "/help"
+}
