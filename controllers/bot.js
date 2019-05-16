@@ -31,7 +31,7 @@ const registerListeners = () => {
             let link = (msgStr).split(Config.BOT_TRIGGER)[1].trim();
 
             // check if link is present
-            const regEx = new RegExp("^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
+            const regEx = new RegExp("^(http(s)?:\/\/)?((w){3}.)?(m.)?youtu(be|.be)?(\.com)?\/.+");
 
             if (!regEx.test(link)) {
                 sendTextResponse(msg, "<b>Please enter a valid url!.</b>");
