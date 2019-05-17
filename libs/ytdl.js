@@ -19,8 +19,13 @@ const getVidInfo = (link) => {
     return new Promise((resolve, reject) => {
         const url = `https://s1.navinda.xyz/youtube/info.php?url=${Utf8.encode(link)}`;
         try {
-            Request(url, { json: true }, (err, res, info) => {
+            Request(url, { json: true, timeout: 20000 }, (err, res, info) => {
                 let result;
+
+                if (err.code === 'ETIMEDOUT') {
+                    result = "Sorry!. YTDL server is unreachable at the moment.";
+                    reject(result);
+                }
 
                 if (info) {
                     result = getFormats(info);
@@ -47,8 +52,14 @@ const getVidDownLink = (link, format) => {
         const url = `https://s1.navinda.xyz/youtube/download.php?url=${Utf8.encode(link)}&code=${code}`;
 
         try {
-            Request(url, { json: true }, (err, res, downLink) => {
+            Request(url, { json: true, timeout: 120000 }, (err, res, downLink) => {
                 let result;
+
+                if (err.code === 'ETIMEDOUT') {
+                    result = "Sorry!. YTDL server is unreachable at the moment.";
+                    reject(result);
+                }
+
                 if (downLink) {
                     result = downLink;
                 } else {
