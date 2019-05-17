@@ -1,4 +1,5 @@
 {
+    "/start": "<b>Welcome to MediaBuddy Bot!.\n\n***Commands***\n/md - Media download.\n/help\n/about</b>",
     "/help": "<b>***Help***</b>\n<i>/md &lt;video link&gt;</i> - <b>Search and Download video.</b>",
     "/about": "<b>By Navinda Dissanayake @ https://www.navinda.xyz</b>"
 }
